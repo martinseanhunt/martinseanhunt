@@ -4,7 +4,14 @@ html {
 }
 body {
   margin: 0;
-  background:  #fff;
+  background: #1A315B;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #FFE53B;
+  background-image: radial-gradient( circle farthest-corner at 12.3% 19.3%,  rgba(85,88,218,1) 0%, rgba(95,209,249,1) 100.2% );
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(253,193,104,1) 0%, rgba(251,128,128,1) 90% );
+  background-image: linear-gradient( 109.6deg,  rgba(99,37,42,1) 11.2%, rgba(233,98,10,1) 100.2% );
+  color: #fff;
 }
 article,
 aside,
@@ -206,6 +213,7 @@ body {
   -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  padding: 35px;
 }
 img {
   max-width: 100%;

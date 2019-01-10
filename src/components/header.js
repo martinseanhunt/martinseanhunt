@@ -12,9 +12,15 @@ class Header extends React.Component {
         <HeaderContainer>
           <HeaderInner>
             <Logo>
-              <h1>MARTINSEANHUNT</h1>
+              <img src={Icon} alt="triskele logo" />
             </Logo>
-            <Link to='/contact'>contact</Link>
+            <nav>
+              <ul>
+                <li><Link to='/contact'>Code</Link></li>
+                <li><Link to='/contact'>Writing</Link></li>
+                <li><Link to='/contact'>Let's Talk</Link></li>
+              </ul>
+            </nav>
           </HeaderInner>
         </HeaderContainer>
         <Particles 
@@ -22,25 +28,32 @@ class Header extends React.Component {
           height="100vh"
           params={params}
           style={{
-            position: 'absolute',
+            position: 'fixed',
             top: 0,
             left: 0,
-            zIndex: 1,
+            zIndex: -1
           }}
         />
         <MainBody>
           <MainInner>
-            <h1>Hi I'm Martin, a <b>software engineer</b> based in Gloucestershire, UK.</h1>
+            <h1>Hi, I'm Martin, a <b>software engineer</b><br/> based in Gloucestershire.</h1>
             <p>there is nothing outside of yourself that can ever enable you to get better, stronger, richer, quicker, or smarter. Everything is within. Everything exists. Seek nothing outside of yourself.</p>
+            <p className="emojis">👨‍💻 🌳 🤸‍♂️ 🥊 🙏</p>
           </MainInner>
         </MainBody>
+        <Footer>
+          <FooterInner>
+            <span>This website is open source and available on <a href="">GitHub</a></span>
+            <span><a href="mailto:me@martinseanhunt.com">me@martinseanhunt.com</a></span>
+          </FooterInner>
+        </Footer>
       </>
     )
   }
 }
 
 const Inner = styled.div`
-  max-width: 1400px;
+  max-width: 1100px;
 `
 
 const Container = styled.div`
@@ -48,39 +61,65 @@ const Container = styled.div`
   justify-content: center;
 `
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled(Container)`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
   color: #fff;
   z-index: 4;
+  padding: 35px;
 `
 
 const HeaderInner = styled(Inner)`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 50px 0;
-
-  a {
-    color: #0fe3ff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-  }
+  max-width: 100%;
 
   h1 {
     font-size: 26px;
-    font-weight: normal;
+  }
+
+  ul {
+    list-style: none
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+    
+    a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 500;
+      opacity: 0.6;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
   }
 `
 
 const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  
   img {
-    height: 50px;
+    height: 25px;
+    display: inline-block;
+    margin-right: 3px;
+  }
+
+  h1 {
+    display: inline-block;
   }
 `
 
@@ -91,9 +130,7 @@ nice gradient: background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100
 nice blues: #1A315B, 37517e 
 */
 const MainBody = styled(Container)`
-  background: #1A315B;
-  background-image: linear-gradient(135deg, #344d77 0%, #1A315B 100%);
-  height: 100vh;
+  height: calc(100vh - 70px);
   color: #fff;
   align-items: center;
 `
@@ -104,19 +141,48 @@ const MainInner = styled(Inner)`
   width: 100%;
   
   h1{
-    font-size: 52px;
+    font-size: 48px;
     font-weight: bold;
-    max-width: 940px;
+    max-width: 800px;
 
     b {
-      color: #0fd7ff;
+      color: #00fffa;
     }
   }
 
   p {
-    max-width: 800px;
+    max-width: 600px;
     font-size: 16px;
   }
+
+  .emojis {
+    font-size: 18px;
+  }
+`
+
+const Footer = styled(Container)`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  width: 100%;
+  padding: 35px;
+  opacity: 0.7;
+`
+
+const FooterInner = styled(Inner)`
+  width: 100%;
+  display: flex; 
+  justify-content: space-between;
+  max-width: 100%;
+  font-size: 12px;
+  line-height: 12px;
+
+  p {
+    margin: 0;
+  }
+
+  a { color: #fff; opacity: 0.8; }
 `
 
 const params = {
@@ -129,7 +195,7 @@ const params = {
       }
     },
     "color": {
-      "value": "#344d77" // Swap these values for another interesting look
+      "value": "#fff" // Swap these values for another interesting look
     },
     "shape": {
       "type": "circle",
@@ -142,7 +208,7 @@ const params = {
       }
     },
     "opacity": {
-      "value": 0.5,
+      "value": 0.6,
       "random": false,
       "anim": {
         "enable": false,
@@ -164,13 +230,13 @@ const params = {
     "line_linked": {
       "enable": true,
       "distance": 150,
-      "color": "#4ca9ce", // Swap these values for another interesting look
-      "opacity": 0.6,
+      "color": "#fff", // Swap these values for another interesting look
+      "opacity": 0.2,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 2,
+      "speed": 4,
       "direction": "none",
       "random": false,
       "straight": false,
@@ -184,21 +250,21 @@ const params = {
     }
   },
   "interactivity": {
-    "detect_on": "canvas",
+    "detect_on": "window",
     "events": {
       "onhover": {
-        "enable": false,
-        "mode": "repulse"
+        "enable": true,
+        "mode": "grab"
       },
       "onclick": {
         "enable": false,
         "mode": "push"
       },
-      "resize": false
+      "resize": true
     },
     "modes": {
       "grab": {
-        "distance": 400,
+        "distance": 150,
         "line_linked": {
           "opacity": 1
         }
@@ -215,7 +281,7 @@ const params = {
         "duration": 0.4
       },
       "push": {
-        "particles_nb": 4
+        "particles_nb": 2
       },
       "remove": {
         "particles_nb": 2
