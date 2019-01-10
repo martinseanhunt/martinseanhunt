@@ -145,6 +145,10 @@ const MainInner = styled(Inner)`
     font-weight: bold;
     max-width: 800px;
 
+    @media only screen and (max-width: 600px) {
+      font-size: 20px;
+    }
+
     b {
       color: #00fffa;
     }
