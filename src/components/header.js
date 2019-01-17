@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Particles from 'react-particles-js'
 
-import Icon from '../images/triskele.svg'
+import Icon from '../images/hanuman.svg'
 
 class Header extends React.Component {
   render() { 
@@ -18,7 +18,7 @@ class Header extends React.Component {
               <ul>
                 <li><Link to='/contact'>Code</Link></li>
                 <li><Link to='/contact'>Writing</Link></li>
-                <li><Link to='/contact'>Let's Talk</Link></li>
+                <li><Link to='/contact'>Contact</Link></li>
               </ul>
             </nav>
           </HeaderInner>
@@ -53,7 +53,7 @@ class Header extends React.Component {
 }
 
 const Inner = styled.div`
-  max-width: 1100px;
+  max-width: 1400px;
 `
 
 const Container = styled.div`
@@ -68,37 +68,45 @@ const HeaderContainer = styled(Container)`
   width: 100%;
   color: #fff;
   z-index: 4;
-  padding: 35px;
+  padding: 25px 35px;
 `
 
 const HeaderInner = styled(Inner)`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  max-width: 100%;
+  align-items: flex-end;
 
   h1 {
     font-size: 26px;
   }
 
+  ul, li { margin: 0; }
+
   ul {
-    list-style: none
+    list-style: none;
+    position: relative;
+    top: 7px;
   }
 
   li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 40px;
 
     &:last-child {
       margin-right: 0;
+      
+      a {
+        opacity: 1;
+      }
     }
     
     a {
       color: #fff;
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 18px;
+      font-weight: bold;
       opacity: 0.6;
     }
 
@@ -113,9 +121,9 @@ const Logo = styled.div`
   align-items: center;
   
   img {
-    height: 25px;
+    height: 35px;
     display: inline-block;
-    margin-right: 3px;
+    margin: 0 3px 0 0;
   }
 
   h1 {
@@ -130,7 +138,7 @@ nice gradient: background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100
 nice blues: #1A315B, 37517e 
 */
 const MainBody = styled(Container)`
-  height: calc(100vh - 70px);
+  height: calc(100vh - 50px);
   color: #fff;
   align-items: center;
 `
@@ -170,7 +178,7 @@ const Footer = styled(Container)`
   left: 0;
   color: #fff;
   width: 100%;
-  padding: 35px;
+  padding: 25px 35px;
   opacity: 0.7;
 `
 
@@ -178,7 +186,6 @@ const FooterInner = styled(Inner)`
   width: 100%;
   display: flex; 
   justify-content: space-between;
-  max-width: 100%;
   font-size: 12px;
   line-height: 12px;
 
